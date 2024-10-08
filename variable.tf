@@ -20,3 +20,8 @@ variable "incount" {
     type = number
     default = 5
 }
+
+variable "key" {
+    type = "string"
+    default = "netflixe"
+}
