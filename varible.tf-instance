@@ -12,7 +12,7 @@ resource "aws_instance" "vm" {
     systemctl enable nginx 
     EOF 
     tags = {
-        Name = "webserver_${count.index +1}"
+        Name = "webserver"
 
     }
 }
