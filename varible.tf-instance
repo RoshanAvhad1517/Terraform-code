@@ -3,8 +3,14 @@ resource "aws_instance" "vm" {
     instance_type = "t2.micro"
     count = 3 
     key_name = "netflixe"
-    user_data = file ("${path.module}/script.sh")
-
+    user_data = <<-EOF
+    #!/bin/bash
+    sudo -i
+    yum update -y
+    yum install -y
+    systemctl start nginx 
+    systemctl enable nginx 
+    EOF 
     tags = {
         Name = "webserver_${count.index +1}"
 
